@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
+        <Nullable>disable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Copyright>Jari Petays</Copyright>
+        <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+        <Version>$(VersionPrefix)1.3.0</Version>
+        <Title>Start UNITY Build</Title>
+        <Description>Starts UNITY Build using associated supporting ecosystem</Description>
+        <ApplicationIcon>Tpdkdesign.net-Refresh-Cl-Windows-Download.ico</ApplicationIcon>
+        <SignAssembly>False</SignAssembly>
+        <RepositoryUrl>https://github.com/jpetays/StartUnityBuild</RepositoryUrl>
+        <Authors>Jari Petays</Authors>
+        <Copyright>Jari Petays</Copyright>
+        <RootNamespace>StartUnityBuild</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <Deterministic>True</Deterministic>
+      <IsPublishable>False</IsPublishable>
+      <DebugType>full</DebugType>
+      <Optimize>False</Optimize>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+      <Deterministic>True</Deterministic>
+      <IsPublishable>False</IsPublishable>
+      <DebugType>full</DebugType>
+      <Optimize>True</Optimize>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include="Tpdkdesign.net-Refresh-Cl-Windows-Download.ico" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="NLog" Version="5.3.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="NLog.config">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="PrgBuild\" />
+      <Folder Include="PrgFrame\" />
+    </ItemGroup>
+
+</Project>
